@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <meta charset="UTF-8">
+            <title>Blog -- {{ title }}</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+            <link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}">
+        {% endblock %}
+    </head>
+    <body>
+        <div id="content" class="content">
+            {% block content %}{% endblock %}
+            <div class="push"></div>
+        </div>
+        <div id="footer" class="footer">
+            {% block footer %}
+                &copy; Copyright 2017 by Wolv<br>
+                <a href="https://github.com/wolvfang"><i class="fa fa-github"></i> Github</a>
+            {% endblock %}
+        </div>
+    </body>
+</html>

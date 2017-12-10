@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body, html
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content
+{
+    min-height: 100%;
+    margin-bottom: -45px;
+    background-color: #2B303B;
+    color: #B2B6BD;
+}
+
+.footer, .push
+{
+    height: 45px;
+}
+
+.footer
+{
+    background-color: #1C212B;
+    color: #B2B6BD;
+    font-family: lato, sans-serif;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.footer>a
+{
+    text-decoration: none;
+    color: #B2B6BD;
+}

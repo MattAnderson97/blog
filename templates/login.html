@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="login">
+        <span class="login-text">Log in to your account</span><br>
+        {% if invalid is defined %}
+        <span class="error" >Invalid username or password</span><br>
+        {% else %}
+        <div class="spacer"></div>
+        {% endif %}
+        <form action="/login" method="POST">
+            <span class="form-label">Username</span><br>
+            <input class="form-text" type="text" name="user" placeholder="enter your username" maxlength=20 pattern="^[a-zA-Z0-9_]*$" required><br>
+            <span class="form-label">Password</span><br>
+            <input class="form-text" type="password" name="password" placeholder="enter your password" maxlength=20 pattern="^[a-zA-Z0-9@\#$%._]{8,}$" required><br>
+            <input class="form-btn" type="submit" name="submit" value="&rsaquo;">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+.header
+{
+    height: 300px;
+    background-color: #1C212B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo
+{
+    border-radius: 50%;
+    background-color: #2B303B;
+    width: 200px;
+    height: 200px;
+}
+
+.logo>img
+{
+    border-radius: 50%;
+}
