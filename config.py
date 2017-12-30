@@ -1,13 +1,13 @@
 mysql_conf = {
-    'user': '<user>',
-    'password': '<password>',
-    'host': '<host>',
-    'database': '<database>',
+    'user': '',
+    'password': '',
+    'host': '127.0.0.1',
+    'database': 'blog',
     'raise_on_warnings': True,
 }
 
 flask_conf = {
     'host': '0.0.0.0',
-    'port': 5000,
+    'port': 5001,
     'debug': True
 }

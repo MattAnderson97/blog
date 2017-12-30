@@ -30,15 +30,26 @@ class MySQLDriver:
         self.db_open = False
 
     def insert(self, query, data):
-        if not self.db_open:
-            self.open()
-        self.cursor.execute(query, (data,))
+        self.query_data(query, data)
         self.conn.commit()
 
     def query(self, query):
         if not self.db_open:
             self.open()
         self.cursor.execute(query)
+
+    def query_data(self, query, data):
+        if not self.db_open:
+            self.open()
+        self.cursor.execute(query, data)
+
+    def exists(self, data, table, column):
+        self.query("SELECT {0} FROM {1} WHERE {0} LIKE '{2}'".format(column, table, data))
+        count = 0
+        for item in self.cursor:
+            count += 1
+        print(count)
+        return count > 0
 
 # names = ["Matthew Anderson", "Tim Barham", "Anthony Badcock", "John Doe", "Jane Doe", "Jack Frost"]
 

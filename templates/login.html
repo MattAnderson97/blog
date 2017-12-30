@@ -4,19 +4,46 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock %}
 {% block content %}
-    <div class="login">
-        <span class="login-text">Log in to your account</span><br>
-        {% if invalid is defined %}
-        <span class="error" >Invalid username or password</span><br>
-        {% else %}
-        <div class="spacer"></div>
-        {% endif %}
-        <form action="/login" method="POST">
-            <span class="form-label">Username</span><br>
-            <input class="form-text" type="text" name="user" placeholder="enter your username" maxlength=20 pattern="^[a-zA-Z0-9_]*$" required><br>
-            <span class="form-label">Password</span><br>
-            <input class="form-text" type="password" name="password" placeholder="enter your password" maxlength=20 pattern="^[a-zA-Z0-9@\#$%._]{8,}$" required><br>
-            <input class="form-btn" type="submit" name="submit" value="&rsaquo;">
-        </form>
+    <div class="login-shadow"></div>
+    <div class="login-page">
+        <div class="register">
+            <span class="register-welcome">Hi there!</span><br><br>
+            <span class="register-text">Register an account here.</span><br>
+            {% if invalid_signup is defined %}
+            <span class="error">Username or Email already exists</span>
+            {% elif no_match is defined %}
+            <span class="error">Passwords do not match</span>
+            {% else %}
+            <div class="spacer"></div>
+            {% endif %}
+            <div class="register-form">
+                <form action="/signup" method="POST">
+                    <span class="form-label">Email</span><br>
+                    <input class="form-text" type="text" name="email" placeholder="enter your email" maxlength=20 required><br>
+                    <span class="form-label">Username</span><br>
+                    <input class="form-text" type="text" name="user" placeholder="enter your username" maxlength=20 pattern="^[a-zA-Z0-9_]*$" required><br>
+                    <span class="form-label">Password</span><br>
+                    <input id="password-register" class="form-text" type="password" name="password" placeholder="enter your password" maxlength=20 pattern="^[a-zA-Z0-9@\#$%._]{8,}$" required><br>
+                    <span class="form-label">Password Confirmation</span><br>
+                    <input id="password-confirm-register" class="form-text" type="password" name="password_confirm" placeholder="confirm your password" maxlength=20 pattern="^[a-zA-Z0-9@\#$%._]{8,}$" required><br>
+                    <input class="form-btn-register" type="submit" name="submit" value="register"></form>
+                </form>
+            </div>
+        </div>
+        <div class="login">
+            <span class="login-text">Or log in to your account</span>
+            {% if invalid is defined %}
+            <span class="error" >Invalid username or password</span><br>
+            {% else %}
+            <div class="spacer"></div>
+            {% endif %}
+            <form action="/login" method="POST">
+                <span class="form-label">Username</span><br>
+                <input class="form-text" type="text" name="user" placeholder="enter your username" maxlength=20 pattern="^[a-zA-Z0-9_]*$" required><br>
+                <span class="form-label">Password</span><br>
+                <input class="form-text" type="password" name="password" placeholder="enter your password" maxlength=20 pattern="^[a-zA-Z0-9@\#$%._]{8,}$" required><br>
+                <input class="form-btn" type="submit" name="submit" value="&rsaquo;">
+            </form>
+        </div>
     </div>
 {% endblock %}

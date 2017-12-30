@@ -10,14 +10,14 @@ body, html
 .content
 {
     min-height: 100%;
-    margin-bottom: -45px;
+    margin-bottom: -30px;
     background-color: #2B303B;
     color: #B2B6BD;
 }
 
 .footer, .push
 {
-    height: 45px;
+    height: 30px;
 }
 
 .footer
@@ -26,11 +26,11 @@ body, html
     color: #B2B6BD;
     font-family: lato, sans-serif;
     text-align: center;
-    line-height: 20px;
+    line-height: 30px;
     font-size: 15px;
 }
 
-.footer>a
+.footer>span>a
 {
     text-decoration: none;
     color: #B2B6BD;

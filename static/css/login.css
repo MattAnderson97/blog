@@ -1,3 +1,44 @@
+.login-page
+{
+    position: absolute;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    width: 762px;
+    height: 420px;
+    margin: auto;
+}
+
+.login-shadow
+{
+    position: absolute;
+    z-index: 0;
+
+    width: 762px;
+    height: 420px;
+    margin: auto;
+
+    box-shadow: 0px 0px 40px #191d26;
+}
+
+.register
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 420px;
+    width: 400px;
+    padding: 40px 40px;
+
+    background-color: #1C212B;
+}
+
 .login
 {
     display: flex;
@@ -6,21 +47,66 @@
     justify-content: center;
 
     min-height: 100%;
-    margin: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 40px;
+    padding: 40px 40px;
 
-    background-color: #1C212B;
-    box-shadow: 0px 0px 40px #1C212B;
+    background-color: #191d26;
 }
 
 .login-text
 {
     font-family: 'lato', sans-serif;
     color: #B2B6BD;
-    font-size: 20px;
-    margin-top: 40px;
+    font-size: 18px;
+}
+
+.register-text
+{
+    font-family: 'lato', sans-serif;
+    color: #6B6F77;
+    font-size: 16px;
+    margin-bottom: -10px;
+}
+
+.text-sm
+{
+    font-size: 12px;
+}
+
+.register-welcome
+{
+    font-family: 'lato', sans-serif;
+    color: #fff;
+    font-size: 24px;
+}
+
+.register-form
+{
+    margin-top: 0;
+}
+
+.form-btn-register
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 30px;
+    width: 100px;
+
+    margin: auto auto;
+
+    border: none;
+
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'lato', sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+
+    background-color: #FFA000;
+
+    cursor: pointer;
 }
 
 .error, .spacer {
@@ -42,7 +128,7 @@
 
 .form-label
 {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: -5px;
 
     font-family: 'lato', sans-serif;
@@ -53,7 +139,7 @@
 
 .form-text/*, .form-label*/
 {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     height: 25px;
     width: 200px;
     background-color: transparent;
@@ -90,7 +176,6 @@
 .form-btn:hover
 {
     cursor: pointer;
-
 }
 
 .content

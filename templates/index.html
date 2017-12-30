@@ -4,6 +4,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock %}
 {% block content %}
+    <div class="nav">
+        <div class="nav-right">
+            {% if user %}
+              {% if username is defined %}
+                {{ username }}
+              {% endif %}
+            {% else %}
+                <a href="/login">Sign in</a>
+            {% endif %}
+        </div>
+    </div>
     <div class="header">
         <a href="#"><div class="logo"><img src="{{ url_for('static', filename='img/logo.svg') }}"></div></a>
     </div>

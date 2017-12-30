@@ -6,7 +6,7 @@
             <title>Blog -- {{ title }}</title>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-            <link rel="icon" href="{{ url_for('static', filename='img/logo.svg') }}">
+            <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.svg') }}">
         {% endblock %}
     </head>
     <body>
@@ -16,8 +16,7 @@
         </div>
         <div id="footer" class="footer">
             {% block footer %}
-                &copy; Copyright 2017 by Wolv<br>
-                <a href="https://github.com/wolvfang"><i class="fa fa-github"></i> Github</a>
+                <span>&copy; Copyright 2017 by Wolv&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://github.com/wolvfang"><i class="fa fa-github"></i> Github</a></span>
             {% endblock %}
         </div>
     </body>
