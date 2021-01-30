@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+{% block header %}
+    <div class="logo"></div>
+    <div class="description">A simple blog system created to test my abilities.</div>
+{% endblock %}
+{% block content %}
+    <div class="posts">
+        {% for post in posts %}
+            <div class="post" id="{{ post['title'] }}">
+                <div class="title"><a href="#">{{ post['title'] }}</a></div>
+                <ul class="metadata">
+                    <li class="meta-item author">{{ post['author'] }}</li>
+                    <li class="meta-item date">{{ post['date'] }}</li>
+                    <li class="meta-item category">{{ post['category'] }}</li>
+                </ul>
+                <a href="#"" class="banner-image" style="background-image: url('{{post['image']}}');"></a>
+                <div class="description">{{ post['description'] }}</div>
+            </div>
+            <hr class="post-divider">
+        {% endfor %}
+    </div>
+{% endblock %}
