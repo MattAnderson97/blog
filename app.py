@@ -1,12 +1,12 @@
 from flask import Flask
 
-from DatabaseController import DatabaseController
+from database.DatabaseController import DatabaseController
 from routes import routes
 
 app = Flask(__name__)
 app.register_blueprint(routes)
 
-db = DatabaseController("data")
+db = DatabaseController("data.db")
 
 
 def create_tables():
@@ -19,7 +19,7 @@ def create_tables():
     )
     db.create_table(
         'posts', 
-        'post_id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT', 
+        'post_id INTEGER PRIMARY KEY AUTOINCREMENT', 
         'post_title TEXT NOT NULL', 
         'post_description TEXT', 
         'post_thumbnail BLOB', 
@@ -27,7 +27,7 @@ def create_tables():
         'post_date TEXT NOT NULL', 
         'post_content TEXT NOT NULL',
         'author_id INTEGER NOT NULL', 
-        'FOREIGN KEY (author_id) REFERENCES Users(UUID)'
+        'FOREIGN KEY (author_id) REFERENCES users (UUID)'
     )
 
 

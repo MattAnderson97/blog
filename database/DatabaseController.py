@@ -12,7 +12,7 @@ class DatabaseController:
         cur.execute('PRAGMA foreign_keys = ON;')
 
     def open_conn(self):
-        if !self.conn_open:
+        if not self.conn_open:
             # create database connection
             self.conn = sqlite3.connect(self.db_name)
             self.conn_open = True
@@ -24,10 +24,10 @@ class DatabaseController:
             self.conn_open = False
 
     def create_table(self, name, *args):
-        rows = args.join(", ")
-        query = f"create table if not exists {name} ({args});"
+        rows = ', '.join(args)
+        query = f"create table if not exists {name} ({rows});"
         # make sure a database connection is active
-        if (!self.conn_open):
+        if not self.conn_open:
             self.open_conn()
         # get database cursor
         cur = self.conn.cursor()
@@ -37,7 +37,7 @@ class DatabaseController:
 
     def execute_query(self, query, data):
         # make sure a database connection is active
-        if (!self.conn_open):
+        if not self.conn_open:
             self.open_conn()
         # get database cursor
         cur = self.conn.cursor()
