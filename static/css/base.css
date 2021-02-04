@@ -11,6 +11,11 @@ a
     font-family: 'Roboto', sans-serif;
 }
 
+.hidden
+{
+    display: none;
+}
+
 .content
 {
     margin: auto;
@@ -70,29 +75,29 @@ a
     color: #ff572f;
 }
 
+.nav>.nav-bar>.user-login>a:hover
+{
+    cursor: pointer;
+}
+
 .wrapper
 {
     min-height: 100%;
-    margin-bottom: -50px;
 }
 
 .main
 {    
-    min-height: calc(100vh - 150px);
     height: auto;
     padding-bottom: 50px;
 }
 
-.footer,
-.push
-{
-    height: 50px;
-}
-
 .footer
 {
+    height: 50px;
     width: 100%;
+    margin-top: -50px;
     text-align: center;
+    line-height: 50px;
     /* 
      * position: absolute;
      * margin: auto auto 0 auto;

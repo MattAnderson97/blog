@@ -1,4 +1,4 @@
-from flask import abort, Blueprint, render_template
+from flask import abort, Blueprint, render_template, request
 from jinja2 import TemplateNotFound
 from datetime import datetime
 
@@ -7,9 +7,20 @@ from database.UserController import UserController
 
 routes = Blueprint('routes', __name__)
 
+
 @routes.route('/test')
 def test_page():
     return render_template('test.html')
+
+
+@routes.route('/submit_login', methods=['POST'])
+def submit_login():
+    pass
+
+
+@routes.route('/submit_regsiter', methods=['POST'])
+def submit_register():
+    pass
 
 
 @routes.route('/')
