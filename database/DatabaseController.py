@@ -35,13 +35,16 @@ class DatabaseController:
         # save changes to database
         self.conn.commit()
 
-    def execute_query(self, query, data):
+    def execute_query(self, query, data = None):
         # make sure a database connection is active
         if not self.conn_open:
             self.open_conn()
         # get database cursor
         cur = self.conn.cursor()
-        cur.execute(query, data)
+        if data is None:
+            cur.execute(query)
+        else:
+            cur.execute(query, data)
         # save changes to database
         self.conn.commit()
         return cur.fetchall()

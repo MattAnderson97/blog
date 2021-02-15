@@ -37,8 +37,13 @@ def index():
 
 @routes.route('/<page>')
 def default(page):
-    title = page
-    try:
-        return render_template(f'{page}.html', title=title, logged_in=False)
-    except TemplateNotFound:
-        abort(404)
+    posts_controller = PostsController()
+    post = posts_controller.get_post(page)
+    if post != {}:
+        return render_template('post.html', title=post['title'], logged_in=False, post=post)
+    else:
+        title = page
+        try:
+            return render_template(f'{page}.html', title=title, logged_in=False)
+        except TemplateNotFound:
+            abort(404)

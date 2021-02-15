@@ -45,7 +45,6 @@
     text-align: center;
 }
 
-
 .form-box>.login>.login-form>.login-form-content>.submit,
 .form-box>.form-toggle>li
 {
@@ -73,6 +72,10 @@
     margin-left: 20px;
 }
 
+.form-box>.form-toggle>li:hover
+{
+    cursor: pointer;
+}
 
 .form-box>.form-toggle>li>a
 {
@@ -81,11 +84,6 @@
     font-size: 22px;
     font-family: 'Lato', sans-serif;
     font-weight: 400px;
-}
-
-.form-box>.form-toggle>li>a:hover
-{
-    cursor: pointer;
 }
 
 .form-box>.form-toggle>.active>a
@@ -116,7 +114,6 @@
 {
     margin-top: 10px;
 }
-
 
 .form-box>.login>.login-form>.login-form-content>.username,
 .form-box>.login>.login-form>.login-form-content>.password

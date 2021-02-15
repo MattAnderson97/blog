@@ -14,7 +14,7 @@
                 <ul class="metadata">
                     <li class="meta-item author">{{ post['author'] }}</li>
                     <li class="meta-item date">{{ post['date'] }}</li>
-                    <li class="meta-item category">{{ post['category'] }}</li>
+                    <li class="meta-item category">{{ post['categories'] }}</li>
                 </ul>
                 <a href="#"" class="banner-image" style="background-image: url('{{post['image']}}');"></a>
                 <div class="description">{{ post['description'] }}</div>
@@ -22,6 +22,4 @@
             <hr class="post-divider">
         {% endfor %}
     </div>
-
-
 {% endblock %}
