@@ -1,0 +1,22 @@
+{% set modal_class = modal_class | default("") %}
+{% set modal_id = modal_id | default("") %}
+{% set modal_title = modal_title | default("") %}
+
+<div class="modal {{ modal_class }}" id="{{ modal_id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ modal_title }}</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="close" class="btn-close"></button>
+            </div>
+            <div class="modal-body">
+                {% block modal_content %}{% endblock %}
+            </div>
+            <div class="modal-footer">
+                {% block modal_footer %}
+                <button type="button" class="btn btn-primary" data-bd-dismiss="modal">Close</button>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

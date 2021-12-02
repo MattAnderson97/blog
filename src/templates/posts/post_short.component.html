@@ -1,0 +1,10 @@
+<div class="post-short">
+    <div class="post-header">
+        <h3 class="post-title">{{ post.title }}</h3><span>, <a href="" class="post-author">{{ post.author.name }}</a></span><br/>
+        <span class="post-dates">{{ post.date_created }}</span>
+        <div class="post-categories">{% for category in post.categories %}<span class="category">{{ category.name }}</span>{% endfor %}</div>
+    </div>
+    <div class="post-body">
+        <span class="post-desc">{{ post.description }}</span>
+    </div>
+</div>

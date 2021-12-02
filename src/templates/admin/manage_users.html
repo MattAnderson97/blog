@@ -1,0 +1,8 @@
+{% extends "templates/admin.html" %}
+{% block panel %}
+<div class="users" id="dashboard_panel">
+    {% for user in users %}
+    {{ user.name }} {{ user.role.name }}
+    {% endfor %}
+</div>
+{% endblock %}

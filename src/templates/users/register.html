@@ -1,0 +1,22 @@
+{% extends 'templates/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block wrapper_class %}user-form-page{% endblock %}
+{% block content %}
+    <form action="/register" class="register user-form" method="POST">
+        <div class="form-title">
+            <h5>Register</h5>
+        </div>
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.name) }}
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.email) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.confirm) }}
+        {% if error %}
+        <div class="error-msg">
+            <span class="error-output">{{ error }}</span>
+        </div>
+        {% endif %}
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}

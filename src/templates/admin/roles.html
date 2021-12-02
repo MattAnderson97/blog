@@ -1,0 +1,37 @@
+{% extends "templates/admin.html" %}
+{% block panel %}
+<div class="roles" id="dashboard_panel">
+    <table class="roles-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Can Write</th>
+                <th>Is Admin</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <form action="/roles/update/{{ role.id }}" method="post">
+                    <td class="role-data">{{ role.id }}</td>
+                    <td class="role-data">
+                        <input type="text" name="name" value="{{ role.name }}" class="role-name">
+                    </td>
+                    <td class="role-data">
+                        <input type="checkbox" name="can_write" {% if role.can_write %} checked {% endif %}>
+                    </td>
+                    <td class="role-data">
+                        <input type="checkbox" name="is_admin" {% if role.is_admin %} checked {% endif %}>
+                    </td>
+                    <td class="role-data">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </td>                   
+                </form>
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'templates/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <form class="new-role-form" action="/roles/create" method="post">
+        <div class="form-title">
+            <h5>Register</h5>
+        </div>
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.name) }}
+        {{ wtf.form_field(form.can_write) }}
+        {{ wtf.form_field(form.is_admin) }}
+        {% if error %}
+        <div class="error-msg">
+            <span class="error-output">{{ error }}</span>
+        </div>
+        {% endif %}
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+{% endblock %}

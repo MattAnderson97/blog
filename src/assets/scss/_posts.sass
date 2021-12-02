@@ -1,0 +1,82 @@
+$bg-text: #c3cad0;
+$bg-text-darker: #8e9cac;
+    
+.post-short
+    &:not(:first-of-type)
+        margin-top: 10px
+
+    &:not(:last-of-type)
+        margin-bottom: 10px
+    
+    .post-header
+        .post-title
+            display: inline-block
+            margin: none
+
+        .post-author
+            text-decoration: none
+            font-size: 1.2rem
+            color: $primary-color
+
+        .post-categories
+            .category
+                &:not(:last-of-type)
+                    &::after
+                        content: ","
+
+            .category ~ .category
+                &::before
+                    content: " "
+
+    .post-body
+        display: flex
+        flex-direction: column
+
+.post
+    display: flex
+    flex-direction: column
+    position: relative
+    width: 650px
+    min-height: 100vh
+    margin: auto
+    padding-top: 100px
+
+    .post-meta
+        display: flex
+        flex-direction: column
+        font-family: 'Montserrat', sans-serif
+        margin-bottom: 1.2rem
+
+        .post-title
+            font-size: 3rem
+            font-weight: 700
+
+        .post-submeta
+            margin-top: 1.2rem
+
+            .date-header, .published-date
+                display: inline-block
+                width: 100%
+
+            .date-header
+                color: $bg-text-darker
+
+            .published-date
+                color: black
+    
+    .author
+        // position: absolute
+        // bottom: 30px
+
+        .author-header, .post-author
+            display: inline-block
+            width: 100%
+        
+        .author-header
+            color: $bg-text-darker
+
+        .post-author
+            text-decoration: none
+            font-weight: 700
+            color: black
+            text-transform: capitalize

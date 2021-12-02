@@ -1,0 +1,45 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<div class="post">
+    <div class="post-meta">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <!-- <a href="" class="post-author">{{ post.author.name }}</a> -->
+        <div class="post-submeta">
+            <span class="post-categories">{% for category in post.categories %}{{ category.name }}{% endfor %}</span>
+            <!-- <span class="post-dates">{{ post.date_modified }}</span>   -->
+            <div class="dates">
+                <span class="date-header">Publish date:</span>
+                <span class="published-date">{{ timestamps.published }}</span>
+            </div>
+        </div>
+    </div>
+    <div id="editorjs"></div>
+    <div class="author">
+        <span href="author-header">Author</span>
+        <a href="" class="post-author">{{ post.author.name }}</a>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+    let content = JSON.parse('{{ content | tojson | safe }}');
+    const editor = new EditorJS({
+        holder: 'editorjs',/** 
+         * Available Tools list. 
+         * Pass Tool's class or Settings object for each Tool you want to use 
+         */
+        data: content,
+        readOnly: true,
+        tools: {
+            header: Header,
+            delimiter: Delimiter,
+            paragraph: {
+                class: Paragraph,
+                inlineToolbar: true,
+            },
+            embed: Embed,
+            image: SimpleImage,
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,37 @@
+<navbar>
+    <nav class="full-nav">
+        <div class="left-nav">
+            <div><a href="/" class="logo">Logo</a></div>
+            <div class="main-nav">
+                <a href="/" class="nav-item">Home</a>
+                <a href="/posts" class="nav-item">Posts</a>
+                <a href="/categories" class="nav-item">Categories</a>
+            </div>
+        </div>
+        <div class="right-nav">
+            <div class="user-nav">
+                {% if current_user.is_authenticated %}
+                <div class="user-menu">
+                    <a href="" class="nav-item dropdown-toggle" id="dropwdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">{{ current_user.username }}</a>
+                    <ul class="dropdown-menu" aria-labelledby="drowndownMenuLink">
+                        <li><a href="/dashboard" class="dropdown-item">Dashboard</a></li>
+                        {% if current_user.can_write() %}
+                        <li><a href="/posts/create" class="dropdown-item">Create post</a></li>
+                        {% endif %}
+                        {% if current_user.is_admin() %}
+                        <li><a href="/admin" class="dropdown-item">Admin Panel</a></li>
+                        {% endif %}
+                        <li><a href="/logout" class="dropdown-item">Log out</a></li>
+                    </ul>
+                </div>
+                {% else %}
+                <a href="/login" class="nav-item">Log in</a>
+                <a href="/register" class="nav-item">Register</a>
+                {% endif %}
+            </div>
+            <div class="mobile-toggle">Toggle</div>
+        </div>
+    </nav>
+    <div class="user-dropdown"></div>
+    <nav class="mobile-nav hidden"></nav>
+</navbar>

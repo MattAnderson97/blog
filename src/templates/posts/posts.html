@@ -1,0 +1,10 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+    <content>
+        {% for post in posts %}
+            {% with post=post %}
+                {% include "posts/post_short.component.html" %}
+            {% endwith %}
+        {% endfor %}
+    </content>
+{% endblock %}

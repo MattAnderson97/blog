@@ -1,0 +1,143 @@
+.roles
+    margin: auto
+    width: fit-content
+
+    .roles-table
+        td ~ td, th ~ th
+            padding-left: 10px
+
+        td:not(:last-of-type), th:not(:last-of-type)
+            padding-right: 10px
+
+        .role-data
+            text-align: center
+
+.role-name:focus, .role-name:active
+    box-shadow: none
+    outline: none
+                
+.admin-nav-top
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    height: 50px
+    width: 100%
+    padding: 0 20px
+
+    background-color: $nav-bg-dark
+    color: $nav-text-dark
+    font-family: 'montserrat', sans-serif
+    font-size: 1.2rem
+    font-weight: 500
+
+    .left
+        padding-left: 16px
+
+        .title
+            font-size: 1.4rem
+
+        .nav-link
+            padding: 0
+
+    .right
+        .nav-item
+            color: $nav-text-dark
+
+    .nav-link
+        color: $nav-text-dark
+        line-height: 50px
+
+        &:hover
+            color: $nav-text-dark-hover
+
+.admin-panel
+    position: relative
+    display: flex
+    width: 100%
+    min-height: calc(100vh - 50px)
+
+    .content
+        width: 100%
+        min-height: 100%
+        padding-top: 5px
+
+        .panel-home
+            padding-left: 62.2px
+            transition: all 0.5s ease
+
+        .panel
+            width: fit-content
+            max-width: 100%
+            margin: 0 auto
+
+    .sidebar.active ~ .content
+        .panel-home
+            padding-left: 185px
+
+    .sidebar
+        position: absolute
+        z-index: 3
+        display: flex
+        flex-direction: column
+        min-height:  100%
+        width: 57.2px
+        padding: 5px
+        background-color: $sidebar-bg-dark
+        color: $sidebar-text-dark
+        transition: all 0.5s ease
+
+        .top
+            display: flex
+            justify-content: end
+            margin-bottom: 20px
+
+            .sidebar-item
+                &:hover
+                    background-color: $sidebar-bg-dark
+                    color: $sidebar-text-dark
+
+                .sidebar-item-text
+                    margin-left: 0px
+                    margin-right: 5px
+                    transition: none
+
+        .sidebar-item
+            display: inline-flex
+            align-items: center
+            height: 50px
+            padding: 0 10px
+            line-height: 50px
+            text-decoration: none
+            font-weight: 600
+            color: $sidebar-text-dark
+
+            &:hover
+                cursor: pointer
+                background-color: $sidebar-text-dark
+                color: $sidebar-bg-dark
+                border-radius: 12px
+
+            i
+                font-size: 1.7rem
+                font-weight: 70px
+
+            .sidebar-item-text
+                margin-left: 10px
+                visibility: hidden
+                opacity: 0
+                transition: visibility 0s linear 0.5s, opacity 0s linear 0.5s
+
+    .sidebar.active
+        width: 180px
+
+        .top
+            .sidebar-item
+                #sidebar-btn-icon
+                    font-size: 2rem
+
+        .sidebar-item
+            .sidebar-item-text
+                visibility: visible;
+                opacity: 1;
+                transition: visibility 0s linear 0s, opacity 0s linear 0s

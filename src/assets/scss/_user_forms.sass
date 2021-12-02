@@ -1,0 +1,77 @@
+.user-form-page
+    height: 100vh
+    width: 100vw
+    background: linear-gradient(90deg, rgba(236,72,153,1) 0%, rgba(239,68,68,1) 50%, rgba(234,179,8,1) 100%)
+
+    navbar
+        .full-nav
+            background-color: rgba(255,255,255,0)
+            box-shadow: none
+            font-weight: 600
+    
+    .nav-item
+        color: rgba(255,255,255,0.8)
+        font-weight: 600
+
+        &:hover
+            color: white
+
+    content
+        position: absolute
+        top: 0
+        padding: 0
+        height: 100vh
+        width: 100vw
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+    
+.user-form
+    margin: auto
+    padding: 50px 60px
+    width: 550px
+    background-color: white
+    border-radius: 15px
+
+    .form-group, .checkbox, .btn
+        margin: 10px 0px
+
+        .form-control
+            margin-top: 2px
+            background-color: $gray-100
+
+            &:focus
+                box-shadow: none
+
+    .btn
+        width: 100%
+
+    .form-row
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        .checkbox
+            width: fit-content
+
+        a
+            text-decoration: none
+            color: $primary-color
+
+.error-msg, .form-title
+    text-align: center
+
+.form-title
+    margin-bottom: 20px
+
+    h5
+        font-size: 1.375em
+        font-weight: 600
+        color: $gray-600
+
+.error-msg
+    // border-radius: 5px
+    // background-color: $red-400
+    // color: white;
+    color: $red-400
