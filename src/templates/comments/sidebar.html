@@ -1,0 +1,27 @@
+{% block sidebar %}
+<div class="comments-bar hidden" id="commentsBar">
+    <btn class="btn btn-close mt-4 me-4" id="closeCommentsBtn"></btn>
+
+    <h4 class="mt-4 ms-4">See what others are saying</h4>
+    <hr>
+
+    <div class="px-4 py-2">
+        <div class="comments-title"><h5 class="comments-header">Comments</h5><h5 class="comments-counter ms-2">{{ post.comments |length }}</h5></div>
+        {% if current_user.is_authenticated %}
+        <div class="add-comment mb-2">
+            {% include 'comments/form.html' %}
+        </div>
+        {% endif %}
+    
+        <div class="comments">
+            {% for comment in post.comments %}
+                <div class="comment py-2">
+                    <span class="comment-user">{{ comment.author.name }}</span><br/>
+                    <span class="comment-time">{{ comment.date_created }}</span><br/>
+                    <span class="comment-content">{{ comment.content }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

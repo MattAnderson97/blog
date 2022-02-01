@@ -7,7 +7,9 @@ Docker is being used for a mysql database
 ## Requirements
 --
 
-the requirements can be installed with the command `pip install -r requirements.txt`
+- Python 3.10
+
+the following requirements can be installed with the command `pip install -r requirements.txt`
 
 - Flask
 - Flask-Bootstrap
@@ -20,6 +22,7 @@ the requirements can be installed with the command `pip install -r requirements.
 - WTForms
 - email-validator
 - requests
+- mysqlclient
 
 ## Installation
 
@@ -30,3 +33,7 @@ the requirements can be installed with the command `pip install -r requirements.
 
 - reconfigure mysql environment settings in `docker-compose.yml` (make sure it's the same as in the `.env` file)
 - run the command `docker-compose up` to build/start the database in docker
+  
+## Running
+
+The blog can be started with the command `flask run`

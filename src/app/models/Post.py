@@ -1,5 +1,6 @@
 from src.app.models.Model import Model
 from src.app.models.Category import Category
+from src.app.models.Comment import Comment
 from src.database.database import db
 
 
@@ -9,6 +10,7 @@ class Post(db.Model, Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     content = db.Column(db.Text)
     categories = db.relationship('Category', secondary='post_categories', back_populates='posts', lazy='dynamic')
+    comments = db.relationship(Comment, backref='post', lazy=True)
 
     @classmethod
     def new(cls, data):

@@ -1,0 +1,7 @@
+<form action="/comment" class="comment-form" method="POST">
+    {{ comment_form.hidden_tag() }}
+    {{ wtf.form_errors(comment_form, hiddens="only") }}
+
+    {{ comment_form.content(class="form-control my-2", placeholder=comment_form.content.label.text ) }}
+    <button class="btn btn-primary mt-2" type="submit">Comment</button>
+</form>

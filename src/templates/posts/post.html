@@ -1,4 +1,5 @@
 {% extends 'templates/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 <div class="post">
     <div class="post-meta">
@@ -7,19 +8,30 @@
         <div class="post-submeta">
             <span class="post-categories">{% for category in post.categories %}{{ category.name }}{% endfor %}</span>
             <!-- <span class="post-dates">{{ post.date_modified }}</span>   -->
-            <div class="dates">
-                <span class="date-header">Publish date:</span>
-                <span class="published-date">{{ timestamps.published }}</span>
+            
+            <div class="byline">
+                <div class="author">
+                    <!-- <span href="author-header">Author</span> -->
+                    <a href="" class="post-author">{{ post.author.name }}</a>
+                </div>
+                <div class="dates">
+                    <!-- <span class="date-header">Publish date:</span> -->
+                    <span class="published-date">{{ timestamps.published }}</span>
+                </div>
             </div>
+        </div>
+        <div class="post-reacts">
+            <div class="react">
+                <div class="like">Like</div>
+                <div class="comments-counter" id="commentsToggle">{{ post.comments |length }} Comments</div>
+            </div>
+            <div class="social">Social links</div>
         </div>
     </div>
     <div id="editorjs"></div>
-    <div class="author">
-        <span href="author-header">Author</span>
-        <a href="" class="post-author">{{ post.author.name }}</a>
-    </div>
 </div>
 {% endblock %}
+{% include 'comments/sidebar.html' %}
 {% block scripts %}
 <script>
     let content = JSON.parse('{{ content | tojson | safe }}');
@@ -42,4 +54,5 @@
         }
     });
 </script>
+<script src="{{ url_for('static', filename='js/post.js') }}"></script>
 {% endblock %}

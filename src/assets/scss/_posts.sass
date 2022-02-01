@@ -54,29 +54,80 @@ $bg-text-darker: #8e9cac;
         .post-submeta
             margin-top: 1.2rem
 
-            .date-header, .published-date
-                display: inline-block
-                width: 100%
+            .byline
+                display: flex
 
-            .date-header
-                color: $bg-text-darker
+                .dates
+                    margin-left: 10px
 
-            .published-date
-                color: black
-    
-    .author
-        // position: absolute
-        // bottom: 30px
+                    .date-header, .published-date
+                        display: inline-block
+                        width: 100%
 
-        .author-header, .post-author
-            display: inline-block
-            width: 100%
+                    .date-header
+                        color: $bg-text-darker
+
+                    .published-date
+                        color: black
         
-        .author-header
-            color: $bg-text-darker
+                .author
+                    // position: absolute
+                    // bottom: 30px
 
-        .post-author
-            text-decoration: none
-            font-weight: 700
-            color: black
-            text-transform: capitalize
+                    .author-header, .post-author
+                        display: inline-block
+                        width: 100%
+                    
+                    .author-header
+                        color: $bg-text-darker
+
+                    .post-author
+                        text-decoration: none
+                        font-weight: 700
+                        color: black
+                        text-transform: capitalize
+
+        .post-reacts
+            display: flex
+            justify-content: space-between
+
+            .react
+                display: flex
+
+                div
+                    margin: 5px 5px 5px 0px
+
+                div + div
+                    margin-left: 5px
+
+                    &:before
+                        content: "\2043"
+                        margin-right: 10px
+
+                .comments-counter
+                    cursor: pointer
+
+            .social
+                margin: 5px
+
+.comments-bar
+    position: absolute
+    z-index: 11
+    right: 0px
+    top: 0px
+    width: 550px
+    height: 100vh
+    box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.12)
+    background-color: $nav-bg-color
+
+    .btn-close
+        float: right
+
+    .comments-title
+        display: flex
+
+        .comments-header
+            font-weight: 600
+        
+        .comments-counter
+            color: $gray-500

@@ -8,11 +8,13 @@ from src.app.decorators import admin_required, write_required
 from src.app.forms.roles.NewRoleForm import NewRoleForm
 from src.app.forms.users.LoginForm import LoginForm
 from src.app.forms.users.RegisterForm import RegisterForm
+from src.app.forms.comments.NewCommentForm import NewCommentForm
 from src.app.exceptions.UserExistsException import UserExistsException
 from src.app.models.Category import Category
 from src.app.models.Post import Post
 from src.app.models.Role import Role
 from src.app.models.User import User
+from src.app.models.Comment import Comment
 
 
 routes = Blueprint('main', __name__)
@@ -171,6 +173,24 @@ def save_post():
     return url_for('main.home')
 
 
+@routes.route("/comment", methods=["POST"])
+def comment():
+    form = NewCommentForm()
+
+    if form.validate_on_submit():
+        data = {
+            'user_id': current_user.id,
+            'post_id': form.post.data,
+            'content': form.content.data,
+            'parent': form.parent.data
+        }
+        # print(data)
+        Comment.new(data)
+
+        return redirect(url_for('main.show_post', post_id=form.post.data))
+    return redirect(url_for('main.home'))
+
+
 @routes.route("/posts")
 def posts():
     return render_template('posts/posts.html', posts=Post.all(), current_user=current_user)
@@ -179,14 +199,18 @@ def posts():
 @routes.route("/posts/<post_id>")
 def show_post(post_id):    
     post = Post.get_by_id(int(post_id))
+
     if (post):
         content = post.content[1:-1].replace("\\\"", "\"")
         content = json.loads(content)
-        print(content)
+        # print(content)
         timestamps = {}
         timestamps["published"] = post.date_created.strftime("%B %d, %Y")
         timestamps["modified"] = post.date_modified.strftime("%B %d, %Y")
-        return render_template("posts/post.html", post=post, timestamps=timestamps, content=content)
+        
+        comment_form = NewCommentForm(post=int(post_id))
+
+        return render_template("posts/post.html", post=post, timestamps=timestamps, content=content, comment_form=comment_form)
     return redirect(url_for('main.home'))
 
 @routes.errorhandler(401)

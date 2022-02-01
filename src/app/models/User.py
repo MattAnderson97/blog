@@ -1,5 +1,6 @@
 from flask_login import UserMixin
 # Local imports
+from src.app.models.Comment import Comment
 from src.app.models.Model import Model
 from src.app.models.Post import Post
 from src.app.models.Role import Role
@@ -15,6 +16,7 @@ class User(db.Model, Model, UserMixin):
     profile_picture = db.Column(db.String(100))
     role_id = db.Column(db.Integer, db.ForeignKey(Role.id))
     posts = db.relationship(Post, backref='author', lazy=True)
+    comments = db.relationship(Comment, backref='author', lazy=True)
 
     @classmethod
     def new(cls, user_data):
